@@ -28,7 +28,13 @@
                 <li class="nav-item">
                     <a href="#projets" class="nav-link">Projets</a>
                 </li>
+                <li class="nav-item">
+                    <a href="#bts-sio" class="nav-link btn-bts">Présentation BTS SIO</a>
+                </li>
             </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
             <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -339,6 +345,88 @@
                             <a href="#" class="project-link">
                                 Vous le consultez actuellement <i class="fas fa-eye"></i>
                             </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="bts-sio" class="bts-sio section page-inactive">
+            <div class="container">
+                <div class="bts-header">
+                    <a href="#accueil" class="btn-back nav-link">
+                        <i class="fas fa-arrow-left"></i> Retour au portfolio
+                    </a>
+                    <h2 class="bts-title">Présentation BTS SIO</h2>
+                </div>
+
+                <div class="bts-intro">
+                    <p>Cette page présente les travaux et projets réalisés dans le cadre de ma formation BTS Services Informatiques aux Organisations, option Solutions Logicielles et Applications Métiers (SLAM).</p>
+                </div>
+
+                <div class="bts-actions">
+                    <button class="btn btn-veille" disabled>
+                        <i class="fas fa-newspaper"></i> Veille Informatique (À venir)
+                    </button>
+                </div>
+
+                <div class="bts-projects">
+                    <h3 class="bts-section-title">Projets de Formation</h3>
+
+                    <!-- Projet MTCcongés -->
+                    <div class="bts-project-card">
+                        <div class="bts-project-year">1ère année</div>
+                        <div class="bts-project-content">
+                            <h4 class="bts-project-title">MTCcongés</h4>
+                            <div class="bts-project-status">
+                                <span class="status-badge incomplete">À compléter</span>
+                            </div>
+                            <p class="bts-project-description">
+                                Application de gestion des congés développée lors de ma première année de BTS SIO en alternance chez MTB By Creative. Ce projet permet aux employés de gérer leurs demandes de congés et aux managers de les valider.
+                            </p>
+                            <div class="bts-project-details">
+                                <h5>Technologies utilisées</h5>
+                                <ul>
+                                    <li><strong>Backend :</strong> PHP, MySQL</li>
+                                    <li><strong>Frontend :</strong> HTML, CSS, JavaScript</li>
+                                    <li><strong>Fonctionnalités :</strong> Authentification, gestion des demandes, système de validation</li>
+                                </ul>
+                                <div class="completion-note">
+                                    <i class="fas fa-info-circle"></i>
+                                    <p>Documentation et captures d'écran en cours de préparation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projet RFTG -->
+                    <div class="bts-project-card">
+                        <div class="bts-project-year">2ème année</div>
+                        <div class="bts-project-content">
+                            <h4 class="bts-project-title">RFTG - Application de réservation de DVD</h4>
+                            <div class="bts-project-status">
+                                <span class="status-badge incomplete">À compléter</span>
+                            </div>
+                            <p class="bts-project-description">
+                                Portant le nom de <strong>RFTG</strong>, cette application permet de mettre en pratique de nombreuses notions apprises dans le cadre du BTS SIO. Elle permet la réservation de DVD dans un parc d'attraction avec une partie applicative mobile pour les clients, une partie web pour les administrateurs ainsi qu'une API REST connectée à une base de données inspirée du modèle Sakila.
+                            </p>
+                            <div class="bts-project-details">
+                                <h5>Technologies utilisées</h5>
+                                <ul>
+                                    <li><strong>Backend :</strong> PHP, MySQL, REST API</li>
+                                    <li><strong>Mobile :</strong> Java, XML, Android Studio</li>
+                                    <li><strong>Modules :</strong> Gestion des réservations, authentification, interface mobile et web</li>
+                                    <li><strong>Objectif :</strong> Créer un système complet de gestion de DVD pour un parc à thème</li>
+                                </ul>
+                                <div class="bts-project-challenges">
+                                    <h5>Défis techniques</h5>
+                                    <p>Communication entre l'application mobile et le serveur via une API REST sécurisée, gestion multi-interface (web + mobile) et synchronisation des données avec la base MySQL.</p>
+                                </div>
+                                <div class="completion-note">
+                                    <i class="fas fa-info-circle"></i>
+                                    <p>Projet en cours de développement - Documentation complète à venir</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

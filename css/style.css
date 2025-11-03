@@ -12,6 +12,89 @@
     --border-radius: 8px;
 }
 
+/* Mode Dark */
+body.dark-mode {
+    --bg-color: #0a1929;
+    --text-color: #e0e0e0;
+    --light-color: #1a2332;
+    --dark-color: #ffffff;
+    --secondary-color: #64b5f6;
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .header {
+    background-color: #152238;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .theme-toggle {
+    color: #ffd54f;
+}
+
+body.dark-mode .nav-link {
+    color: #e0e0e0;
+}
+
+body.dark-mode .logo {
+    color: #e0e0e0;
+}
+
+body.dark-mode .hero {
+    background-color: #152238;
+}
+
+body.dark-mode .hero-title,
+body.dark-mode .hero-subtitle {
+    color: #e0e0e0;
+}
+
+body.dark-mode .skill-card,
+body.dark-mode .certification-card,
+body.dark-mode .project-card {
+    background-color: #1a2332;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .skill-bar {
+    background-color: #2a3a4a;
+}
+
+body.dark-mode .project-details {
+    background-color: #1a2332;
+}
+
+body.dark-mode .project-details-content {
+    background-color: #0f1824;
+}
+
+body.dark-mode .bts-intro,
+body.dark-mode .bts-project-card {
+    background-color: #1a2332;
+}
+
+body.dark-mode .bts-project-details {
+    background-color: #0f1824;
+}
+
+body.dark-mode .completion-note {
+    background-color: rgba(46, 91, 255, 0.15);
+}
+
+body.dark-mode .footer {
+    background-color: #0a1929;
+    border-top: 1px solid #2a3a4a;
+}
+
+body.dark-mode .timeline-item::before {
+    border-color: #1a2332;
+}
+
+body.dark-mode .status-badge.incomplete {
+    background-color: #3a3020;
+    color: #ffc107;
+    border-color: #5a4a30;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -204,6 +287,49 @@ p {
 .logo.nav-link::after,
 .btn.nav-link::after {
     display: none;
+}
+
+/* Bouton BTS SIO dans la navigation */
+.btn-bts {
+    background-color: var(--primary-color) !important;
+    color: var(--light-color) !important;
+    padding: 0.6rem 1.2rem !important;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-bts:hover {
+    background-color: var(--secondary-color) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(46, 91, 255, 0.3);
+}
+
+.btn-bts::after {
+    display: none !important;
+}
+
+/* Bouton de changement de thème */
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--dark-color);
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    margin-left: 1rem;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.theme-toggle:hover {
+    background-color: rgba(46, 91, 255, 0.1);
+    transform: rotate(15deg);
 }
 
 .hamburger {
@@ -480,9 +606,10 @@ p {
 .project-card {
     background-color: var(--light-color);
     border-radius: var(--border-radius);
-    overflow: hidden;
+    overflow: visible;
     box-shadow: var(--shadow);
     transition: var(--transition);
+    position: relative;
 }
 
 .project-card:hover {
@@ -571,6 +698,14 @@ p {
 }
 
 .project-details {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background-color: var(--light-color);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    box-shadow: var(--shadow);
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
@@ -578,7 +713,7 @@ p {
 }
 
 .project-details.active {
-    max-height: 500px;
+    max-height: 600px;
     border-top: 1px solid #e0e0e0;
 }
 
@@ -926,4 +1061,242 @@ textarea.form-control {
 .certification-desc {
     font-size: 0.95rem;
     color: var(--text-color);
+}
+
+/* Page BTS SIO */
+.bts-sio {
+    background-color: var(--bg-color);
+    min-height: 100vh;
+}
+
+.bts-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+
+.btn-back {
+    background-color: var(--primary-color);
+    color: var(--light-color) !important;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.btn-back:hover {
+    background-color: var(--secondary-color);
+    transform: translateX(-5px);
+}
+
+.btn-back::after {
+    display: none;
+}
+
+.bts-title {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.bts-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    padding: 1.5rem;
+    background-color: var(--light-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.bts-intro p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin: 0;
+    color: var(--text-color);
+}
+
+.bts-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.btn-veille {
+    background-color: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.btn-veille:hover {
+    background-color: #6c757d;
+    transform: none;
+}
+
+.bts-projects {
+    margin-top: 3rem;
+}
+
+.bts-section-title {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.bts-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.bts-project-card {
+    background-color: var(--light-color);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-left: 5px solid var(--primary-color);
+}
+
+.bts-project-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.bts-project-year {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.bts-project-content {
+    padding: 1rem 0;
+}
+
+.bts-project-title {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.bts-project-status {
+    margin-bottom: 1rem;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.status-badge.incomplete {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffc107;
+}
+
+.status-badge.complete {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #28a745;
+}
+
+.bts-project-description {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.bts-project-details {
+    background-color: var(--bg-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin-top: 1.5rem;
+}
+
+.bts-project-details h5 {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.bts-project-details h5:first-child {
+    margin-top: 0;
+}
+
+.bts-project-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.bts-project-details li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.bts-project-details li::before {
+    content: '▸';
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.bts-project-challenges {
+    margin-top: 1.5rem;
+}
+
+.bts-project-challenges p {
+    margin-top: 0.5rem;
+    line-height: 1.7;
+}
+
+.completion-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: rgba(46, 91, 255, 0.05);
+    border-left: 3px solid var(--primary-color);
+    border-radius: 4px;
+}
+
+.completion-note i {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-top: 0.2rem;
+}
+
+.completion-note p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    font-style: italic;
 }

@@ -78,19 +78,19 @@ document.addEventListener('click', (e) => {
         const button = e.target.closest('.project-more-btn');
         const projectId = button.getAttribute('data-project');
         const details = document.getElementById(`${projectId}-details`);
-        const chevron = button.querySelector('i');
-        
+
         if (details) {
             // Toggle des classes active
             details.classList.toggle('active');
             button.classList.toggle('active');
-            
-            // Changer le texte du bouton
-            if (details.classList.contains('active')) {
-                button.innerHTML = `Réduire <i class="fas fa-chevron-down"></i>`;
-            } else {
-                button.innerHTML = `En savoir plus <i class="fas fa-chevron-down"></i>`;
-            }
+
+            // Changer le texte du bouton tout en préservant l'attribut data-project
+            const isActive = details.classList.contains('active');
+            const chevronIcon = '<i class="fas fa-chevron-down"></i>';
+            const buttonText = isActive ? 'Réduire' : 'En savoir plus';
+
+            button.innerHTML = `${buttonText} ${chevronIcon}`;
+            button.setAttribute('data-project', projectId); // Réappliquer l'attribut data-project
         }
     }
 });
@@ -116,6 +116,31 @@ if (contactForm) {
         }, 2000);
     });
 }
+
+// Gestion du mode dark/light
+const themeToggle = document.getElementById('themeToggle');
+const body = document.body;
+
+// Charger la préférence de thème depuis le localStorage
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme === 'dark') {
+    body.classList.add('dark-mode');
+    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+}
+
+// Toggle du thème
+themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+
+    // Changer l'icône
+    if (body.classList.contains('dark-mode')) {
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        localStorage.setItem('theme', 'dark');
+    } else {
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        localStorage.setItem('theme', 'light');
+    }
+});
 
 // Initialisation: afficher la page d'accueil par défaut
 document.addEventListener('DOMContentLoaded', () => {
