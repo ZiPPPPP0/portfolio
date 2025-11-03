@@ -7,904 +7,11 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- Font Awesome pour les icônes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-/* Variables globales */
-:root {
-    --primary-color: #2e5bff;
-    --secondary-color: #152238;
-    --accent-color: #ff6b6b;
-    --bg-color: #f8f9fa;
-    --text-color: #333;
-    --light-color: #ffffff;
-    --dark-color: #0a1929;
-    --transition: all 0.3s ease;
-    --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    --border-radius: 8px;
-}
-
-/* Reset et styles de base */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    line-height: 1.6;
-}
-
-a {
-    text-decoration: none;
-    color: var(--primary-color);
-    transition: var(--transition);
-}
-
-a:hover {
-    color: var(--accent-color);
-}
-
-ul {
-    list-style: none;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-h1, h2, h3, h4 {
-    margin-bottom: 1rem;
-    font-weight: 600;
-    line-height: 1.2;
-}
-
-h1 {
-    font-size: 2.5rem;
-}
-
-h2 {
-    font-size: 2rem;
-    color: var(--secondary-color);
-}
-
-h3 {
-    font-size: 1.5rem;
-}
-
-p {
-    margin-bottom: 1rem;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem;
-}
-
-.section {
-    padding: 4rem 0;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.section-title h2 {
-    display: inline-block;
-    position: relative;
-    padding-bottom: 10px;
-}
-
-.section-title h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70px;
-    height: 3px;
-    background-color: var(--primary-color);
-}
-
-.btn {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    background-color: var(--primary-color);
-    color: var(--light-color);
-    border-radius: var(--border-radius);
-    border: none;
-    cursor: pointer;
-    transition: var(--transition);
-    font-weight: 500;
-}
-
-.btn:hover {
-    background-color: var(--secondary-color);
-    color: var(--light-color);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow);
-}
-
-/* Header et Navigation */
-.header {
-    background-color: var(--light-color);
-    box-shadow: var(--shadow);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--secondary-color);
-}
-
-.logo span {
-    color: var(--primary-color);
-}
-
-.nav-menu {
-    display: flex;
-}
-
-.nav-item {
-    margin-left: 1.5rem;
-}
-
-.nav-link {
-    color: var(--dark-color);
-    font-weight: 500;
-    position: relative;
-    padding: 0.5rem 0;
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background-color: var(--primary-color);
-    transition: var(--transition);
-}
-
-.nav-link:hover::after, .nav-link.active::after {
-    width: 100%;
-}
-
-.hamburger {
-    display: none;
-    cursor: pointer;
-}
-
-.bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    -webkit-transition: var(--transition);
-    transition: var(--transition);
-    background-color: var(--dark-color);
-}
-
-/* Hero Section (Accueil) */
-.hero {
-    min-height: calc(100vh - 80px);
-    display: flex;
-    align-items: center;
-    background-color: var(--light-color);
-}
-
-.hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.hero-title {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    color: var(--secondary-color);
-}
-
-.hero-subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    color: var(--text-color);
-}
-
-.hero-text {
-    max-width: 600px;
-    margin-bottom: 2rem;
-}
-
-.hero-img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 2rem;
-    border: 5px solid var(--light-color);
-    box-shadow: var(--shadow);
-}
-
-.hero-social {
-    display: flex;
-    margin-top: 1.5rem;
-}
-
-.hero-social a {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: var(--primary-color);
-    color: var(--light-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 0.5rem;
-    transition: var(--transition);
-}
-
-.hero-social a:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-3px);
-}
-
-/* À propos Section */
-.about {
-    background-color: var(--bg-color);
-}
-
-.about-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-}
-
-.about-img {
-    width: 100%;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    overflow: hidden;
-}
-
-.about-content h3 {
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-}
-
-.about-section {
-    margin: 2rem 0;
-}
-
-.about-section h4 {
-    margin-bottom: 1.5rem;
-    color: var(--secondary-color);
-    font-size: 1.2rem;
-}
-
-.timeline {
-    position: relative;
-    padding-left: 2rem;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 0.5rem;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background-color: var(--primary-color);
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 2rem;
-    padding-left: 1.5rem;
-}
-
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -0.4rem;
-    top: 0.2rem;
-    width: 0.8rem;
-    height: 0.8rem;
-    border-radius: 50%;
-    background-color: var(--primary-color);
-    border: 3px solid var(--light-color);
-    box-shadow: 0 0 0 3px var(--primary-color);
-}
-
-.timeline-date {
-    font-size: 0.9rem;
-    color: var(--primary-color);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.timeline-content h5 {
-    margin-bottom: 0.5rem;
-    color: var(--secondary-color);
-    font-size: 1.1rem;
-}
-
-.timeline-content p {
-    margin-bottom: 0.5rem;
-    color: var(--text-color);
-    font-size: 0.95rem;
-}
-
-.timeline-location {
-    font-size: 0.85rem;
-    color: #666;
-    font-style: italic;
-}
-
-.about-info {
-    margin-top: 2rem;
-}
-
-.about-info li {
-    margin-bottom: 0.8rem;
-    display: flex;
-    align-items: center;
-}
-
-.about-info strong {
-    margin-right: 0.5rem;
-    color: var(--secondary-color);
-}
-
-/* Compétences Section */
-.skills {
-    background-color: var(--light-color);
-}
-
-.skills-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.skill-card {
-    background-color: var(--bg-color);
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.skill-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-}
-
-.skill-icon {
-    font-size: 3rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
-.skill-title {
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-    color: var(--secondary-color);
-}
-
-.skill-bar {
-    width: 100%;
-    height: 10px;
-    background-color: #e0e0e0;
-    border-radius: 10px;
-    margin-top: 1rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.skill-progress {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    background-color: var(--primary-color);
-    border-radius: 10px;
-    transition: width 1s ease-in-out;
-}
-
-/* Projets Section */
-.projects {
-    background-color: var(--bg-color);
-}
-
-.projects-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.project-card {
-    background-color: var(--light-color);
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-}
-
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-}
-
-.project-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.project-content {
-    padding: 1.5rem;
-}
-
-.project-title {
-    margin-bottom: 0.5rem;
-    font-size: 1.3rem;
-}
-
-.project-category {
-    font-size: 0.8rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    display: inline-block;
-    background-color: rgba(46, 91, 255, 0.1);
-    padding: 0.2rem 0.8rem;
-    border-radius: 20px;
-}
-
-.project-description {
-    margin-bottom: 1.5rem;
-    color: #666;
-    font-size: 0.9rem;
-}
-
-.project-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    align-items: center;
-}
-
-.project-link {
-    font-weight: 500;
-    display: inline-flex;
-    align-items: center;
-}
-
-.project-link i {
-    margin-left: 0.5rem;
-    transition: var(--transition);
-}
-
-.project-link:hover i {
-    transform: translateX(5px);
-}
-
-.project-more-btn {
-    background: none;
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
-    padding: 0.5rem 1rem;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    font-size: 0.9rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: var(--transition);
-}
-
-.project-more-btn:hover {
-    background-color: var(--primary-color);
-    color: var(--light-color);
-}
-
-.project-more-btn i {
-    transition: var(--transition);
-}
-
-.project-more-btn.active i {
-    transform: rotate(180deg);
-}
-
-.project-details {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    border-top: 1px solid transparent;
-}
-
-.project-details.active {
-    max-height: 500px;
-    border-top: 1px solid #e0e0e0;
-}
-
-.project-details-content {
-    padding: 1.5rem;
-    background-color: #f8f9fa;
-}
-
-.project-details-content h4 {
-    margin-bottom: 1rem;
-    color: var(--secondary-color);
-}
-
-.project-details-content ul {
-    list-style: none;
-    padding: 0;
-}
-
-.project-details-content li {
-    margin-bottom: 0.8rem;
-    padding-left: 1rem;
-    position: relative;
-}
-
-.project-details-content li::before {
-    content: '•';
-    color: var(--primary-color);
-    position: absolute;
-    left: 0;
-}
-
-/* Jeu d'échecs Section */
-.chess {
-    background-color: var(--light-color);
-}
-
-.chess-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.chess-game {
-    background-color: var(--bg-color);
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    margin-bottom: 2rem;
-}
-
-.chess-board {
-    display: grid;
-    grid-template-columns: repeat(8, 60px);
-    grid-template-rows: repeat(8, 60px);
-    gap: 0;
-    border: 3px solid var(--secondary-color);
-    border-radius: var(--border-radius);
-    overflow: hidden;
-}
-
-.chess-square {
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    position: relative;
-    transition: var(--transition);
-}
-
-.chess-square.white {
-    background-color: #f0d9b5;
-}
-
-.chess-square.black {
-    background-color: #b58863;
-}
-
-.chess-square.selected {
-    background-color: #ffeb9c !important;
-    box-shadow: inset 0 0 0 3px var(--primary-color);
-}
-
-.chess-square.possible-move::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 20px;
-    height: 20px;
-    background-color: rgba(128, 128, 128, 0.6);
-    border-radius: 50%;
-    border: 2px solid rgba(128, 128, 128, 0.8);
-    z-index: 1;
-}
-
-.chess-square.check {
-    background-color: #ff6b6b !important;
-}
-
-.chess-piece {
-    font-size: 3.2rem;
-    line-height: 1;
-    user-select: none;
-    position: relative;
-    z-index: 2;
-}
-
-.chess-info {
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-.chess-status {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
-}
-
-.chess-controls {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-}
-
-.chess-btn {
-    padding: 0.5rem 1rem;
-    background-color: var(--primary-color);
-    color: var(--light-color);
-    border: none;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    transition: var(--transition);
-    font-size: 0.9rem;
-}
-
-.chess-btn:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-2px);
-}
-
-/* Footer */
-.footer {
-    background-color: var(--dark-color);
-    color: var(--light-color);
-    padding: 2rem 0;
-    text-align: center;
-}
-
-.footer p {
-    margin-bottom: 0.5rem;
-}
-
-.footer a {
-    color: var(--primary-color);
-}
-
-.footer a:hover {
-    color: var(--accent-color);
-}
-
-.footer-games {
-    margin-top: 1rem;
-}
-
-.footer-game-btn {
-    display: inline-block;
-    margin: 0 0.5rem;
-    padding: 0.5rem 1rem;
-    background-color: var(--primary-color);
-    color: var(--light-color);
-    border-radius: var(--border-radius);
-    font-size: 0.9rem;
-    transition: var(--transition);
-}
-
-.footer-game-btn:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-2px);
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.fade-in {
-    animation: fadeIn 1s ease-out;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--secondary-color);
-}
-
-/* Page Active */
-.page-active {
-    display: block;
-}
-
-.page-inactive {
-    display: none;
-}
-
-/* Responsive Design */
-@media (max-width: 991px) {
-    .about-container, .contact-container {
-        grid-template-columns: 1fr;
-    }
-
-    .about-img {
-        max-width: 500px;
-        margin: 0 auto;
-    }
-}
-
-@media (max-width: 768px) {
-    .hamburger {
-        display: block;
-    }
-
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        gap: 0;
-        flex-direction: column;
-        background-color: var(--light-color);
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-    }
-
-    .nav-item {
-        margin: 1.5rem 0;
-    }
-
-    .nav-menu.active {
-        left: 0;
-    }
-
-    .hero-title {
-        font-size: 2.5rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-
-    .project-links {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .project-more-btn, .project-link {
-        text-align: center;
-        justify-content: center;
-    }
-
-    .chess-board {
-        grid-template-columns: repeat(8, 50px);
-        grid-template-rows: repeat(8, 50px);
-    }
-
-    .chess-square {
-        width: 50px;
-        height: 50px;
-    }
-
-    .chess-piece {
-        font-size: 2.5rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .container {
-        width: 95%;
-    }
-
-    .section {
-        padding: 3rem 0;
-    }
-
-    .hero-title {
-        font-size: 2rem;
-    }
-
-    .about-content h3 {
-        font-size: 1.3rem;
-    }
-
-    .chess-board {
-        grid-template-columns: repeat(8, 40px);
-        grid-template-rows: repeat(8, 40px);
-    }
-
-    .chess-square {
-        width: 40px;
-        height: 40px;
-    }
-
-    .chess-piece {
-        font-size: 2.5rem;
-    }
-
-    .chess-square.possible-move::after {
-        width: 16px;
-        height: 16px;
-    }
-}
-    </style>
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
         <nav class="navbar container">
-            <a href="#accueil" class="logo">Camille<span>Marsac</span></a>
+            <a href="#accueil" class="logo nav-link">Camille<span>Marsac</span></a>
             <ul class="nav-menu">
                 <li class="nav-item">
                     <a href="#accueil" class="nav-link active">Accueil</a>
@@ -914,6 +21,9 @@ p {
                 </li>
                 <li class="nav-item">
                     <a href="#competences" class="nav-link">Compétences</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#certifications" class="nav-link">Certifications</a>
                 </li>
                 <li class="nav-item">
                     <a href="#projets" class="nav-link">Projets</a>
@@ -927,9 +37,7 @@ p {
         </nav>
     </header>
 
-    <!-- Main Content -->
     <main>
-        <!-- Accueil Section -->
         <section id="accueil" class="hero page-active">
             <div class="container">
                 <div class="hero-content fade-in">
@@ -940,21 +48,22 @@ p {
                         Passionné par le développement web et la création d'applications, je me forme activement pour devenir un développeur complet et polyvalent.
                     </p>
                     <div class="hero-btns">
-                        <a href="#projets" class="btn">Voir mes projets</a>
+                        <a href="#projets" class="btn nav-link">Voir mes projets</a>
                     </div>
                     <div class="hero-social">
-                        <a href="https://github.com/ZiPPPPP0" target="_blank" title="GitHub">
+                        <a href="https://github.com/Camille-msc" target="_blank" title="GitHub">
                             <i class="fab fa-github"></i>
                         </a>
+                        <!-- Linkedin Non opérationnel
                         <a href="https://www.linkedin.com/in/camille-marsac" target="_blank" title="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
+                        -->
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- À propos Section -->
         <section id="apropos" class="about section page-inactive">
             <div class="container">
                 <div class="section-title">
@@ -1014,8 +123,8 @@ p {
                         <div class="about-info">
                             <ul>
                                 <li><strong>Formation actuelle :</strong> BTS Services Informatiques aux Organisations</li>
-                                <li><strong>Objectif professionnel :</strong> Devenir développeur web / application full-stack</li>
-                                <li><strong>Centres d'intérêt :</strong> Nouvelles technologies, développement web et d'application, cybersécurité</li>
+                                <li><strong>Objectif professionnel :</strong> Devenir développeur d'application web full stack</li>
+                                <li><strong>Centres d'intérêt :</strong> Nouvelles technologies, développement d'application web</li>
                             </ul>
                         </div>
                     </div>
@@ -1023,14 +132,13 @@ p {
             </div>
         </section>
 
-        <!-- Compétences Section -->
         <section id="competences" class="skills section page-inactive">
             <div class="container">
                 <div class="section-title">
                     <h2>Mes Compétences</h2>
                 </div>
                 <div class="skills-container">
-                    <!-- HTML Skill -->
+                    <!-- HTML -->
                     <div class="skill-card">
                         <div class="skill-icon">
                             <i class="fab fa-html5"></i>
@@ -1038,11 +146,11 @@ p {
                         <h3 class="skill-title">HTML</h3>
                         <p>Création de structures web sémantiques et accessibles</p>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
+                            <div class="skill-progress" style="width: 50%"></div>
                         </div>
                     </div>
 
-                    <!-- CSS Skill -->
+                    <!-- CSS -->
                     <div class="skill-card">
                         <div class="skill-icon">
                             <i class="fab fa-css3-alt"></i>
@@ -1050,11 +158,11 @@ p {
                         <h3 class="skill-title">CSS</h3>
                         <p>Stylisation avancée et création de layouts responsives</p>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
+                            <div class="skill-progress" style="width: 45%"></div>
                         </div>
                     </div>
 
-                    <!-- JavaScript Skill -->
+                    <!-- JavaScript -->
                     <div class="skill-card">
                         <div class="skill-icon">
                             <i class="fab fa-js"></i>
@@ -1062,11 +170,11 @@ p {
                         <h3 class="skill-title">JavaScript</h3>
                         <p>Développement d'interactions dynamiques et applications web</p>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%"></div>
+                            <div class="skill-progress" style="width: 55%"></div>
                         </div>
                     </div>
 
-                    <!-- PHP Skill -->
+                    <!-- PHP -->
                     <div class="skill-card">
                         <div class="skill-icon">
                             <i class="fab fa-php"></i>
@@ -1074,11 +182,11 @@ p {
                         <h3 class="skill-title">PHP</h3>
                         <p>Création d'applications web dynamiques côté serveur</p>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 70%"></div>
+                            <div class="skill-progress" style="width: 55%"></div>
                         </div>
                     </div>
 
-                    <!-- Windows Skill -->
+                    <!-- Windows -->
                     <div class="skill-card">
                         <div class="skill-icon">
                             <i class="fab fa-windows"></i>
@@ -1090,7 +198,7 @@ p {
                         </div>
                     </div>
 
-                    <!-- XAMPP Skill -->
+                    <!-- XAMPP -->
                     <div class="skill-card">
                         <div class="skill-icon">
                             <i class="fas fa-server"></i>
@@ -1098,28 +206,67 @@ p {
                         <h3 class="skill-title">XAMPP</h3>
                         <p>Configuration et utilisation d'environnements de développement locaux</p>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
+                            <div class="skill-progress" style="width: 70%"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projets Section -->
+        <section id="certifications" class="certifications section page-inactive">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Mes Certifications</h2>
+                </div>
+
+                <div class="certifications-container">
+                    <!-- Certification PIX -->
+                    <div class="certification-card">
+                        <i class="fas fa-certificate certification-icon"></i>
+                        <h3 class="certification-title">Certification PIX</h3>
+                        <p class="certification-desc">
+                            Compétences numériques certifiées — Score : <strong>345 points</strong><br>
+                            Obtenue le 23 février 2024.
+                        </p>
+                    </div>
+
+                    <!-- Certification CNIL -->
+                    <div class="certification-card">
+                        <i class="fas fa-shield-alt certification-icon"></i>
+                        <h3 class="certification-title">MOOC RGPD (CNIL)</h3>
+                        <p class="certification-desc">
+                            Sensibilisation et d’initiation des professionnels à la protection des données et accompagnement de leur mise en conformité.<br>
+                            Délivrée en 2025.
+                        </p>
+                    </div>
+
+                    <!-- Certification ANSSI -->
+                    <div class="certification-card">
+                        <i class="fas fa-shield-alt certification-icon"></i>
+                        <h3 class="certification-title">Cybersécurité (ANSSI)</h3>
+                        <p class="certification-desc">
+                            Sensibilisation à la sécurité numérique et aux bonnes pratiques en entreprise.
+                            Délivrée en 2025.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="projets" class="projects section page-inactive">
             <div class="container">
                 <div class="section-title">
                     <h2>Mes Projets</h2>
                 </div>
                 <div class="projects-container">
-                    <!-- Projet 1 -->
+                    <!-- Projet Site Podologue -->
                     <div class="project-card">
                         <img src="img/projet-podologue.jpg" alt="Site web de podologie" class="project-img">
                         <div class="project-content">
                             <span class="project-category">Développement Web</span>
                             <h3 class="project-title">Site web pour une podologue</h3>
                             <p class="project-description">
-                                Création d'un site web professionnel sur WordPress pour une podologue à Argentan, incluant une présentation des services et des informations de contact.
+                                Création d'un site web professionnel pour une podologue à Argentan, incluant une présentation des services et des informations de contact.
                             </p>
                             <div class="project-links">
                                 <a href="http://podologue-argentan.com" target="_blank" class="project-link">
@@ -1134,17 +281,53 @@ p {
                             <div class="project-details-content">
                                 <h4>Détails du projet</h4>
                                 <ul>
-                                    <li><strong>Technologies utilisées :</strong> WordPress, PHP, CSS, JavaScript</li>
+                                    <li><strong>Technologies utilisées :</strong> HTML, CSS, JavaScript. Hébergeur : O2Switch, FileZilla pour la mise en service sur l'hébergeur</li>
                                     <li><strong>Durée :</strong> 2 semaines</li>
-                                    <li><strong>Fonctionnalités :</strong> Site vitrine responsive, formulaire de contact, présentation des services</li>
-                                    <li><strong>Objectifs :</strong> Créer une présence en ligne professionnelle pour attirer de nouveaux patients</li>
+                                    <li><strong>Fonctionnalités :</strong> Site vitrine responsive, présentation des services, HTTPS</li>
+                                    <li><strong>Objectifs :</strong> Créer une présence en ligne professionnelle pour attirer de nouveaux patients. Accessible sur la première page de recherche.</li>
                                 </ul>
                                 <p><strong>Défis relevés :</strong> Adapter le design aux besoins spécifiques du secteur médical tout en conservant une interface moderne et accessible.</p>
                             </div>
                         </div>
-                    </div>           
+                    </div>
 
-                    <!-- Projet 2 -->
+                    <!-- Projet RFTG -->
+                    <div class="project-card">
+                        <img src="img/projet-rftg.jpg" alt="Application de réservation de DVD" class="project-img">
+                        <div class="project-content">
+                            <span class="project-category">Application Web, Mobile et API</span>
+                            <h3 class="project-title">Application de réservation de DVD</h3>
+                            <p class="project-description">
+                                Portant le nom de <strong>RFTG</strong>, cette application permet de mettre en pratique de nombreuses notions apprises dans le cadre du BTS SIO. Elle permet la réservation de DVD dans un parc d'attraction avec une partie applicative mobile pour les clients, une partie web pour les administrateurs ainsi qu'une API REST connectée à une base de données inspirée du modèle Sakila.
+                            </p>
+
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    En développement <i class="fas fa-hammer"></i>
+                                </a>
+                                <button class="project-more-btn" data-project="rftg">
+                                    En savoir plus <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- En savoir plus -->
+                        <div class="project-details" id="rftg-details">
+                            <div class="project-details-content">
+                                <h4>Détails du projet</h4>
+                                <ul>
+                                    <li><strong>Technologies utilisées :</strong> PHP, MySQL, Java, XML, REST API, Android Studio</li>
+                                    <li><strong>Durée :</strong> Projet en cours</li>
+                                    <li><strong>Modules :</strong> Gestion des réservations, authentification, interface mobile et web</li>
+                                    <li><strong>Objectif :</strong> Créer un système complet de gestion de DVD pour un parc à thème</li>
+                                </ul>
+                                <p><strong>Défis techniques :</strong> communication entre l'application mobile et le serveur via une API REST sécurisée, gestion multi-interface (web + mobile) et synchronisation des données avec la base MySQL.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Projet Portfolio -->
                     <div class="project-card">
                         <img src="img/projet-portfolio.jpg" alt="Portfolio personnel" class="project-img">
                         <div class="project-content">
@@ -1162,498 +345,22 @@ p {
             </div>
         </section>
 
-        <!-- Jeu d'échecs Section -->
-        <section id="echecs" class="chess section page-inactive">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Jeu d'Échecs</h2>
-                </div>
-                <div class="chess-container">
-                    <div class="chess-game">
-                        <div class="chess-info">
-                            <div class="chess-status" id="gameStatus">Au tour des blancs</div>
-                            <div class="chess-controls">
-                                <button class="chess-btn" onclick="resetGame()">Nouvelle partie</button>
-                                <button class="chess-btn" onclick="undoMove()">Annuler</button>
-                            </div>
-                        </div>
-                        <div class="chess-board" id="chessBoard"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <p>&copy; 2025 Camille Marsac. Tous droits réservés.</p>
             <p>Étudiant en BTS SIO | Développeur Web</p>
-            <div class="footer-games">
-                <a href="#echecs" class="footer-game-btn nav-link">
-                    <i class="fas fa-chess"></i> Jouer aux échecs
+
+            <div class="footer-buttons">
+                <a href="cv/Camille-Marsac-CV-Public.pdf" class="btn cv-btn" download>
+                    <i class="fas fa-download"></i> Télécharger mon CV
                 </a>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts JS -->
-    <script>
-// Variables globales du jeu d'échecs
-let currentBoard = [];
-let currentPlayer = 'white';
-let selectedSquare = null;
-let gameHistory = [];
-let isGameOver = false;
-
-// Pièces d'échecs en Unicode
-const pieces = {
-    white: {
-        king: '♔',
-        queen: '♕',
-        rook: '♖',
-        bishop: '♗',
-        knight: '♘',
-        pawn: '♙'
-    },
-    black: {
-        king: '♚',
-        queen: '♛',
-        rook: '♜',
-        bishop: '♝',
-        knight: '♞',
-        pawn: '♟'
-    }
-};
-
-// Position initiale du plateau
-const initialBoard = [
-    ['rook', 'knight', 'bishop', 'queen', 'king', 'bishop', 'knight', 'rook'],
-    ['pawn', 'pawn', 'pawn', 'pawn', 'pawn', 'pawn', 'pawn', 'pawn'],
-    [null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null],
-    ['pawn', 'pawn', 'pawn', 'pawn', 'pawn', 'pawn', 'pawn', 'pawn'],
-    ['rook', 'knight', 'bishop', 'queen', 'king', 'bishop', 'knight', 'rook']
-];
-
-// Initialiser le plateau d'échecs
-function initializeBoard() {
-    currentBoard = [];
-    for (let row = 0; row < 8; row++) {
-        currentBoard[row] = [];
-        for (let col = 0; col < 8; col++) {
-            const piece = initialBoard[row][col];
-            if (piece) {
-                const color = row < 2 ? 'black' : 'white';
-                currentBoard[row][col] = { type: piece, color: color };
-            } else {
-                currentBoard[row][col] = null;
-            }
-        }
-    }
-}
-
-// Créer le plateau visuellement
-function createBoard() {
-    const boardElement = document.getElementById('chessBoard');
-    boardElement.innerHTML = '';
-    
-    for (let row = 0; row < 8; row++) {
-        for (let col = 0; col < 8; col++) {
-            const square = document.createElement('div');
-            square.className = 'chess-square';
-            square.dataset.row = row;
-            square.dataset.col = col;
-            
-            // Couleur alternée des cases
-            if ((row + col) % 2 === 0) {
-                square.classList.add('white');
-            } else {
-                square.classList.add('black');
-            }
-            
-            square.addEventListener('click', () => handleSquareClick(row, col));
-            boardElement.appendChild(square);
-        }
-    }
-    
-    updateBoard();
-}
-
-// Mettre à jour l'affichage du plateau
-function updateBoard() {
-    for (let row = 0; row < 8; row++) {
-        for (let col = 0; col < 8; col++) {
-            const square = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
-            const piece = currentBoard[row][col];
-            
-            if (piece) {
-                square.innerHTML = `<span class="chess-piece">${pieces[piece.color][piece.type]}</span>`;
-            } else {
-                square.innerHTML = '';
-            }
-        }
-    }
-}
-
-// Gérer le clic sur une case
-function handleSquareClick(row, col) {
-    if (isGameOver) return;
-    
-    const clickedPiece = currentBoard[row][col];
-    
-    // Réinitialiser les styles
-    clearHighlights();
-    
-    if (selectedSquare) {
-        const [selectedRow, selectedCol] = selectedSquare;
-        const selectedPiece = currentBoard[selectedRow][selectedCol];
-        
-        if (selectedRow === row && selectedCol === col) {
-            // Désélectionner la pièce
-            selectedSquare = null;
-            return;
-        }
-        
-        if (isValidMove(selectedRow, selectedCol, row, col)) {
-            // Effectuer le mouvement
-            makeMove(selectedRow, selectedCol, row, col);
-            selectedSquare = null;
-            
-            // Changer de joueur
-            currentPlayer = currentPlayer === 'white' ? 'black' : 'white';
-            updateGameStatus();
-            
-            // Vérifier la fin de partie
-            checkGameEnd();
-        } else {
-            selectedSquare = null;
-        }
-    }
-    
-    // Sélectionner une nouvelle pièce
-    if (clickedPiece && clickedPiece.color === currentPlayer) {
-        selectedSquare = [row, col];
-        const square = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
-        square.classList.add('selected');
-        
-        // Montrer les mouvements possibles
-        showPossibleMoves(row, col);
-    }
-}
-
-// Effacer les surlignages
-function clearHighlights() {
-    document.querySelectorAll('.chess-square').forEach(square => {
-        square.classList.remove('selected', 'possible-move', 'check');
-    });
-}
-
-// Montrer les mouvements possibles
-function showPossibleMoves(row, col) {
-    for (let r = 0; r < 8; r++) {
-        for (let c = 0; c < 8; c++) {
-            if (isValidMove(row, col, r, c)) {
-                const square = document.querySelector(`[data-row="${r}"][data-col="${c}"]`);
-                square.classList.add('possible-move');
-            }
-        }
-    }
-}
-
-// Vérifier si un mouvement est valide
-function isValidMove(fromRow, fromCol, toRow, toCol) {
-    const piece = currentBoard[fromRow][fromCol];
-    const targetPiece = currentBoard[toRow][toCol];
-    
-    // Vérifications de base
-    if (!piece || piece.color !== currentPlayer) return false;
-    if (targetPiece && targetPiece.color === piece.color) return false;
-    if (fromRow === toRow && fromCol === toCol) return false;
-    
-    // Vérifications spécifiques à chaque pièce
-    switch (piece.type) {
-        case 'pawn':
-            return isValidPawnMove(fromRow, fromCol, toRow, toCol, piece.color);
-        case 'rook':
-            return isValidRookMove(fromRow, fromCol, toRow, toCol);
-        case 'bishop':
-            return isValidBishopMove(fromRow, fromCol, toRow, toCol);
-        case 'queen':
-            return isValidQueenMove(fromRow, fromCol, toRow, toCol);
-        case 'king':
-            return isValidKingMove(fromRow, fromCol, toRow, toCol);
-        case 'knight':
-            return isValidKnightMove(fromRow, fromCol, toRow, toCol);
-        default:
-            return false;
-    }
-}
-
-// Mouvement du pion
-function isValidPawnMove(fromRow, fromCol, toRow, toCol, color) {
-    const direction = color === 'white' ? -1 : 1;
-    const startRow = color === 'white' ? 6 : 1;
-    const deltaRow = toRow - fromRow;
-    const deltaCol = Math.abs(toCol - fromCol);
-    
-    // Mouvement vers l'avant
-    if (fromCol === toCol && !currentBoard[toRow][toCol]) {
-        if (deltaRow === direction) return true;
-        if (fromRow === startRow && deltaRow === 2 * direction) return true;
-    }
-    
-    // Capture en diagonale
-    if (deltaCol === 1 && deltaRow === direction && currentBoard[toRow][toCol]) {
-        return true;
-    }
-    
-    return false;
-}
-
-// Mouvement de la tour
-function isValidRookMove(fromRow, fromCol, toRow, toCol) {
-    if (fromRow !== toRow && fromCol !== toCol) return false;
-    return isPathClear(fromRow, fromCol, toRow, toCol);
-}
-
-// Mouvement du fou
-function isValidBishopMove(fromRow, fromCol, toRow, toCol) {
-    if (Math.abs(fromRow - toRow) !== Math.abs(fromCol - toCol)) return false;
-    return isPathClear(fromRow, fromCol, toRow, toCol);
-}
-
-// Mouvement de la reine
-function isValidQueenMove(fromRow, fromCol, toRow, toCol) {
-    return isValidRookMove(fromRow, fromCol, toRow, toCol) || 
-           isValidBishopMove(fromRow, fromCol, toRow, toCol);
-}
-
-// Mouvement du roi
-function isValidKingMove(fromRow, fromCol, toRow, toCol) {
-    const deltaRow = Math.abs(fromRow - toRow);
-    const deltaCol = Math.abs(fromCol - toCol);
-    return deltaRow <= 1 && deltaCol <= 1;
-}
-
-// Mouvement du cavalier
-function isValidKnightMove(fromRow, fromCol, toRow, toCol) {
-    const deltaRow = Math.abs(fromRow - toRow);
-    const deltaCol = Math.abs(fromCol - toCol);
-    return (deltaRow === 2 && deltaCol === 1) || (deltaRow === 1 && deltaCol === 2);
-}
-
-// Vérifier si le chemin est libre
-function isPathClear(fromRow, fromCol, toRow, toCol) {
-    const deltaRow = toRow - fromRow;
-    const deltaCol = toCol - fromCol;
-    const stepRow = deltaRow === 0 ? 0 : deltaRow > 0 ? 1 : -1;
-    const stepCol = deltaCol === 0 ? 0 : deltaCol > 0 ? 1 : -1;
-    
-    let currentRow = fromRow + stepRow;
-    let currentCol = fromCol + stepCol;
-    
-    while (currentRow !== toRow || currentCol !== toCol) {
-        if (currentBoard[currentRow][currentCol]) return false;
-        currentRow += stepRow;
-        currentCol += stepCol;
-    }
-    
-    return true;
-}
-
-// Effectuer un mouvement
-function makeMove(fromRow, fromCol, toRow, toCol) {
-    const piece = currentBoard[fromRow][fromCol];
-    const capturedPiece = currentBoard[toRow][toCol];
-    
-    // Sauvegarder le mouvement pour l'historique
-    gameHistory.push({
-        from: [fromRow, fromCol],
-        to: [toRow, toCol],
-        piece: piece,
-        captured: capturedPiece,
-        board: JSON.parse(JSON.stringify(currentBoard))
-    });
-    
-    // Effectuer le mouvement
-    currentBoard[toRow][toCol] = piece;
-    currentBoard[fromRow][fromCol] = null;
-    
-    updateBoard();
-}
-
-// Annuler le dernier mouvement
-function undoMove() {
-    if (gameHistory.length === 0) return;
-    
-    const lastMove = gameHistory.pop();
-    currentBoard = lastMove.board;
-    currentPlayer = currentPlayer === 'white' ? 'black' : 'white';
-    selectedSquare = null;
-    clearHighlights();
-    updateBoard();
-    updateGameStatus();
-}
-
-// Mettre à jour le statut du jeu
-function updateGameStatus() {
-    const statusElement = document.getElementById('gameStatus');
-    if (isGameOver) {
-        statusElement.textContent = 'Partie terminée';
-    } else {
-        statusElement.textContent = `Au tour des ${currentPlayer === 'white' ? 'blancs' : 'noirs'}`;
-    }
-}
-
-// Vérifier la fin de partie
-function checkGameEnd() {
-    // Logique simplifiée - peut être étendue pour inclure échec et mat
-    // Pour l'instant, nous laissons le jeu continuer
-}
-
-// Réinitialiser le jeu
-function resetGame() {
-    initializeBoard();
-    currentPlayer = 'white';
-    selectedSquare = null;
-    gameHistory = [];
-    isGameOver = false;
-    clearHighlights();
-    updateBoard();
-    updateGameStatus();
-}
-
-// Navigation du portfolio existante
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
-const navLinks = document.querySelectorAll('.nav-link');
-const sections = document.querySelectorAll('section');
-const contactForm = document.getElementById('contactForm');
-
-// Fonction pour afficher la page active et cacher les autres
-function showPage(pageId) {
-    sections.forEach(section => {
-        if (section.id === pageId) {
-            section.classList.remove('page-inactive');
-            section.classList.add('page-active', 'fade-in');
-        } else {
-            section.classList.remove('page-active', 'fade-in');
-            section.classList.add('page-inactive');
-        }
-    });
-}
-
-// Navigation mobile
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-// Fermer le menu mobile après avoir cliqué sur un lien
-navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        
-        // Identifier la section cible
-        const targetId = link.getAttribute('href').substring(1);
-        
-        // Afficher la page correspondante
-        showPage(targetId);
-        
-        // Mettre à jour la classe active sur les liens de navigation
-        navLinks.forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-        
-        // Fermer le menu mobile si ouvert
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-        
-        // Faire défiler vers la section (en haut de la page)
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-});
-
-// Animation des barres de compétences
-const skillSection = document.getElementById('competences');
-const progressBars = document.querySelectorAll('.skill-progress');
-
-function animateSkills() {
-    progressBars.forEach(bar => {
-        const width = bar.style.width;
-        bar.style.width = '0';
-        setTimeout(() => {
-            bar.style.width = width;
-        }, 200);
-    });
-}
-
-// Animation lors du chargement de la page compétences
-navLinks.forEach(link => {
-    if (link.getAttribute('href') === '#competences') {
-        link.addEventListener('click', animateSkills);
-    }
-});
-
-// Gestion des boutons "En savoir plus" des projets
-document.addEventListener('click', (e) => {
-    if (e.target.matches('.project-more-btn') || e.target.closest('.project-more-btn')) {
-        const button = e.target.closest('.project-more-btn');
-        const projectId = button.getAttribute('data-project');
-        const details = document.getElementById(`${projectId}-details`);
-        const chevron = button.querySelector('i');
-        
-        if (details) {
-            // Toggle des classes active
-            details.classList.toggle('active');
-            button.classList.toggle('active');
-            
-            // Changer le texte du bouton
-            if (details.classList.contains('active')) {
-                button.innerHTML = `Réduire <i class="fas fa-chevron-down"></i>`;
-            } else {
-                button.innerHTML = `En savoir plus <i class="fas fa-chevron-down"></i>`;
-            }
-        }
-    }
-});
-
-// Gestion du formulaire de contact
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Simuler l'envoi d'un formulaire
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
-        
-        submitBtn.textContent = 'Envoi en cours...';
-        submitBtn.disabled = true;
-        
-        // Simuler une réponse de serveur après 2 secondes
-        setTimeout(() => {
-            alert('Merci pour votre message ! Je vous répondrai dès que possible.');
-            contactForm.reset();
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        }, 2000);
-    });
-}
-
-// Initialisation du portfolio et du jeu d'échecs
-document.addEventListener('DOMContentLoaded', () => {
-    showPage('accueil');
-    
-    // Initialiser le jeu d'échecs
-    initializeBoard();
-    createBoard();
-    updateGameStatus();
-});
-    </script>
+    <!-- appeler script js -->
+<script src="js/main.js"></script>
 </body>
+
 </html>
+
