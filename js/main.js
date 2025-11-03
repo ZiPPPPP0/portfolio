@@ -142,6 +142,112 @@ themeToggle.addEventListener('click', () => {
     }
 });
 
+// Gestion des présentations de projets BTS
+const projectPreviews = document.querySelectorAll('.bts-project-preview');
+
+projectPreviews.forEach(preview => {
+    const btn = preview.querySelector('.btn-view-presentation');
+    if (btn) {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const projectId = preview.getAttribute('data-project');
+            showPage(`presentation-${projectId}`);
+        });
+    }
+});
+
+// Gestion de la navigation dans les présentations
+class PresentationManager {
+    constructor(presentationId) {
+        this.presentationId = presentationId;
+        this.currentSlide = 0;
+        this.slides = document.querySelectorAll(`#${presentationId} .presentation-slide`);
+        this.totalSlides = this.slides.length;
+        this.prevBtn = document.querySelector(`#${presentationId} .btn-prev`);
+        this.nextBtn = document.querySelector(`#${presentationId} .btn-next`);
+        this.counter = document.querySelector(`#${presentationId} .slide-counter`);
+        this.closeBtn = document.querySelector(`#${presentationId} .btn-close-presentation`);
+
+        this.init();
+    }
+
+    init() {
+        if (this.prevBtn) {
+            this.prevBtn.addEventListener('click', () => this.prevSlide());
+        }
+        if (this.nextBtn) {
+            this.nextBtn.addEventListener('click', () => this.nextSlide());
+        }
+        if (this.closeBtn) {
+            this.closeBtn.addEventListener('click', () => {
+                const returnPage = this.closeBtn.getAttribute('data-return');
+                showPage(returnPage);
+                this.resetPresentation();
+            });
+        }
+
+        // Support du clavier
+        document.addEventListener('keydown', (e) => {
+            const presentationSection = document.getElementById(this.presentationId);
+            if (presentationSection && presentationSection.classList.contains('page-active')) {
+                if (e.key === 'ArrowLeft') this.prevSlide();
+                if (e.key === 'ArrowRight') this.nextSlide();
+                if (e.key === 'Escape') {
+                    const returnPage = this.closeBtn.getAttribute('data-return');
+                    showPage(returnPage);
+                    this.resetPresentation();
+                }
+            }
+        });
+
+        this.updateSlide();
+    }
+
+    nextSlide() {
+        if (this.currentSlide < this.totalSlides - 1) {
+            this.currentSlide++;
+            this.updateSlide();
+        }
+    }
+
+    prevSlide() {
+        if (this.currentSlide > 0) {
+            this.currentSlide--;
+            this.updateSlide();
+        }
+    }
+
+    updateSlide() {
+        // Cacher toutes les slides
+        this.slides.forEach(slide => slide.classList.remove('active'));
+
+        // Afficher la slide actuelle
+        this.slides[this.currentSlide].classList.add('active');
+
+        // Mettre à jour le compteur
+        if (this.counter) {
+            this.counter.textContent = `${this.currentSlide + 1} / ${this.totalSlides}`;
+        }
+
+        // Gérer l'état des boutons
+        if (this.prevBtn) {
+            this.prevBtn.disabled = this.currentSlide === 0;
+        }
+        if (this.nextBtn) {
+            this.nextBtn.disabled = this.currentSlide === this.totalSlides - 1;
+        }
+    }
+
+    resetPresentation() {
+        this.currentSlide = 0;
+        this.updateSlide();
+    }
+}
+
+// Initialiser les gestionnaires de présentation
+const presentationMTC = new PresentationManager('presentation-mtcconges');
+const presentationRFTG = new PresentationManager('presentation-rftg');
+
 // Initialisation: afficher la page d'accueil par défaut
 document.addEventListener('DOMContentLoaded', () => {
     showPage('accueil');

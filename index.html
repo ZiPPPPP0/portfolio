@@ -373,62 +373,187 @@
                 <div class="bts-projects">
                     <h3 class="bts-section-title">Projets de Formation</h3>
 
-                    <!-- Projet MTCcongés -->
-                    <div class="bts-project-card">
-                        <div class="bts-project-year">1ère année</div>
-                        <div class="bts-project-content">
-                            <h4 class="bts-project-title">MTCcongés</h4>
-                            <div class="bts-project-status">
-                                <span class="status-badge incomplete">À compléter</span>
-                            </div>
-                            <p class="bts-project-description">
-                                Application de gestion des congés développée lors de ma première année de BTS SIO en alternance chez MTB By Creative. Ce projet permet aux employés de gérer leurs demandes de congés et aux managers de les valider.
-                            </p>
-                            <div class="bts-project-details">
-                                <h5>Technologies utilisées</h5>
-                                <ul>
-                                    <li><strong>Backend :</strong> PHP, MySQL</li>
-                                    <li><strong>Frontend :</strong> HTML, CSS, JavaScript</li>
-                                    <li><strong>Fonctionnalités :</strong> Authentification, gestion des demandes, système de validation</li>
-                                </ul>
-                                <div class="completion-note">
-                                    <i class="fas fa-info-circle"></i>
-                                    <p>Documentation et captures d'écran en cours de préparation</p>
+                    <div class="bts-projects-grid">
+                        <!-- Projet MTCcongés -->
+                        <div class="bts-project-preview" data-project="mtcconges">
+                            <img src="img/projet-mtc.jpg" alt="MTCcongés" class="bts-project-preview-img">
+                            <div class="bts-project-preview-content">
+                                <div class="bts-project-year">1ère année</div>
+                                <h4 class="bts-project-preview-title">MTCcongés</h4>
+                                <p class="bts-project-preview-desc">
+                                    Application de gestion des congés développée en alternance chez MTB By Creative.
+                                </p>
+                                <div class="bts-project-status">
+                                    <span class="status-badge incomplete">À compléter</span>
                                 </div>
+                                <button class="btn btn-view-presentation">
+                                    Voir la présentation <i class="fas fa-arrow-right"></i>
+                                </button>
                             </div>
+                        </div>
+
+                        <!-- Projet RFTG -->
+                        <div class="bts-project-preview" data-project="rftg">
+                            <img src="img/projet-rftg.jpg" alt="RFTG" class="bts-project-preview-img">
+                            <div class="bts-project-preview-content">
+                                <div class="bts-project-year">2ème année</div>
+                                <h4 class="bts-project-preview-title">RFTG</h4>
+                                <p class="bts-project-preview-desc">
+                                    Application de réservation de DVD avec interface mobile et web, connectée à une API REST.
+                                </p>
+                                <div class="bts-project-status">
+                                    <span class="status-badge incomplete">À compléter</span>
+                                </div>
+                                <button class="btn btn-view-presentation">
+                                    Voir la présentation <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Présentation MTCcongés -->
+        <section id="presentation-mtcconges" class="presentation section page-inactive">
+            <div class="presentation-container">
+                <div class="presentation-header">
+                    <button class="btn-close-presentation" data-return="bts-sio">
+                        <i class="fas fa-times"></i> Fermer
+                    </button>
+                    <h2 class="presentation-title">MTCcongés</h2>
+                    <p class="presentation-subtitle">Application de Gestion des Congés</p>
+                </div>
+
+                <div class="presentation-content">
+                    <!-- Slide 1 -->
+                    <div class="presentation-slide active">
+                        <h3 class="slide-title">Présentation du Projet</h3>
+                        <div class="slide-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         </div>
                     </div>
 
-                    <!-- Projet RFTG -->
-                    <div class="bts-project-card">
-                        <div class="bts-project-year">2ème année</div>
-                        <div class="bts-project-content">
-                            <h4 class="bts-project-title">RFTG - Application de réservation de DVD</h4>
-                            <div class="bts-project-status">
-                                <span class="status-badge incomplete">À compléter</span>
-                            </div>
-                            <p class="bts-project-description">
-                                Portant le nom de <strong>RFTG</strong>, cette application permet de mettre en pratique de nombreuses notions apprises dans le cadre du BTS SIO. Elle permet la réservation de DVD dans un parc d'attraction avec une partie applicative mobile pour les clients, une partie web pour les administrateurs ainsi qu'une API REST connectée à une base de données inspirée du modèle Sakila.
-                            </p>
-                            <div class="bts-project-details">
-                                <h5>Technologies utilisées</h5>
-                                <ul>
-                                    <li><strong>Backend :</strong> PHP, MySQL, REST API</li>
-                                    <li><strong>Mobile :</strong> Java, XML, Android Studio</li>
-                                    <li><strong>Modules :</strong> Gestion des réservations, authentification, interface mobile et web</li>
-                                    <li><strong>Objectif :</strong> Créer un système complet de gestion de DVD pour un parc à thème</li>
-                                </ul>
-                                <div class="bts-project-challenges">
-                                    <h5>Défis techniques</h5>
-                                    <p>Communication entre l'application mobile et le serveur via une API REST sécurisée, gestion multi-interface (web + mobile) et synchronisation des données avec la base MySQL.</p>
-                                </div>
-                                <div class="completion-note">
-                                    <i class="fas fa-info-circle"></i>
-                                    <p>Projet en cours de développement - Documentation complète à venir</p>
-                                </div>
-                            </div>
+                    <!-- Slide 2 -->
+                    <div class="presentation-slide">
+                        <h3 class="slide-title">Contexte et Objectifs</h3>
+                        <div class="slide-content">
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            <ul>
+                                <li>Lorem ipsum dolor sit amet</li>
+                                <li>Consectetur adipiscing elit</li>
+                                <li>Sed do eiusmod tempor incididunt</li>
+                            </ul>
                         </div>
                     </div>
+
+                    <!-- Slide 3 -->
+                    <div class="presentation-slide">
+                        <h3 class="slide-title">Technologies Utilisées</h3>
+                        <div class="slide-content">
+                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="presentation-controls">
+                    <button class="btn-slide btn-prev" disabled>
+                        <i class="fas fa-chevron-left"></i> Précédent
+                    </button>
+                    <span class="slide-counter">1 / 3</span>
+                    <button class="btn-slide btn-next">
+                        Suivant <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Présentation RFTG -->
+        <section id="presentation-rftg" class="presentation section page-inactive">
+            <div class="presentation-container">
+                <div class="presentation-header">
+                    <button class="btn-close-presentation" data-return="bts-sio">
+                        <i class="fas fa-times"></i> Fermer
+                    </button>
+                    <h2 class="presentation-title">RFTG</h2>
+                    <p class="presentation-subtitle">Application de Réservation de DVD</p>
+                </div>
+
+                <div class="presentation-content">
+                    <!-- Slide 1 -->
+                    <div class="presentation-slide active">
+                        <h3 class="slide-title">Présentation du Projet</h3>
+                        <div class="slide-content">
+                            <p>RFTG est une application complète permettant la gestion et la réservation de DVD dans un parc d'attraction.</p>
+                            <p>Le projet met en pratique de nombreuses notions apprises dans le cadre du BTS SIO, notamment la création d'API REST et le développement mobile.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="presentation-slide">
+                        <h3 class="slide-title">Architecture du Projet</h3>
+                        <div class="slide-content">
+                            <p>L'application se compose de trois parties principales :</p>
+                            <ul>
+                                <li><strong>Application Mobile (Android)</strong> : Interface client pour consulter et réserver des DVD</li>
+                                <li><strong>Interface Web</strong> : Panneau d'administration pour gérer le catalogue et les réservations</li>
+                                <li><strong>API REST</strong> : Backend sécurisé pour la communication entre les différentes interfaces</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="presentation-slide">
+                        <h3 class="slide-title">Technologies Utilisées</h3>
+                        <div class="slide-content">
+                            <ul>
+                                <li><strong>Backend :</strong> PHP avec architecture REST</li>
+                                <li><strong>Base de données :</strong> MySQL (modèle inspiré de Sakila)</li>
+                                <li><strong>Mobile :</strong> Java avec Android Studio et XML</li>
+                                <li><strong>Sécurité :</strong> Authentification JWT, validation des données</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="presentation-slide">
+                        <h3 class="slide-title">Fonctionnalités Principales</h3>
+                        <div class="slide-content">
+                            <ul>
+                                <li>Consultation du catalogue de DVD avec filtres de recherche</li>
+                                <li>Système de réservation en temps réel</li>
+                                <li>Gestion des utilisateurs et authentification sécurisée</li>
+                                <li>Interface d'administration pour la gestion du stock</li>
+                                <li>Synchronisation automatique entre mobile et serveur</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Slide 5 -->
+                    <div class="presentation-slide">
+                        <h3 class="slide-title">Défis Techniques</h3>
+                        <div class="slide-content">
+                            <p><strong>Communication Mobile-Serveur :</strong></p>
+                            <p>Mise en place d'une API REST sécurisée avec gestion des tokens d'authentification et validation des requêtes.</p>
+
+                            <p><strong>Synchronisation des Données :</strong></p>
+                            <p>Gestion de la cohérence des données entre l'application mobile et le serveur, avec gestion des conflits et mise à jour en temps réel.</p>
+
+                            <p><strong>Gestion Multi-Interface :</strong></p>
+                            <p>Architecture permettant à plusieurs interfaces (web et mobile) d'accéder aux mêmes données de manière cohérente.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="presentation-controls">
+                    <button class="btn-slide btn-prev" disabled>
+                        <i class="fas fa-chevron-left"></i> Précédent
+                    </button>
+                    <span class="slide-counter">1 / 5</span>
+                    <button class="btn-slide btn-next">
+                        Suivant <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
             </div>
         </section>
