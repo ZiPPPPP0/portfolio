@@ -186,23 +186,9 @@ document.addEventListener('click', (e) => {
 
         if (projectsData[projectId]) {
             createModal(projectsData[projectId]);
-        const details = document.getElementById(`${projectId}-details`);
-
-        if (details) {
-            // Toggle des classes active
-            details.classList.toggle('active');
-            button.classList.toggle('active');
-
-            // Changer le texte du bouton tout en préservant l'attribut data-project
-            const isActive = details.classList.contains('active');
-            const chevronIcon = '<i class="fas fa-chevron-down"></i>';
-            const buttonText = isActive ? 'Réduire' : 'En savoir plus';
-
-            button.innerHTML = `${buttonText} ${chevronIcon}`;
-            button.setAttribute('data-project', projectId); // Réappliquer l'attribut data-project
         }
     }
-}});
+});
 
 // Gestion du formulaire de contact
 if (contactForm) {
