@@ -252,12 +252,12 @@ p {
 
 .btn-hero {
     background-color: #ffffff;
-    color: #2563EB;
+    color: #3B82F6;
 }
 
 .btn-hero:hover {
     background-color: #ffffff;
-    color: #2563EB;
+    color: #3B82F6;
 }
 
 .header {
@@ -406,7 +406,7 @@ p {
     min-height: 70vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%);
+    background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
     position: relative;
     overflow: visible;
 }
@@ -482,6 +482,23 @@ p {
 .hero-social a:hover {
     background-color: rgba(255, 255, 255, 0.3);
     transform: translateY(-3px);
+}
+
+.hero-description-container {
+    padding: 4rem 0 3rem 0;
+    text-align: center;
+}
+
+.hero-description {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+body.dark-mode .hero-description {
+    color: var(--text-color);
 }
 
 .about {
