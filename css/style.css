@@ -97,6 +97,16 @@ body.dark-mode .completion-note {
     border-color: var(--primary-color);
 }
 
+body.dark-mode .hero-title,
+body.dark-mode .hero-subtitle,
+body.dark-mode .hero-text {
+    color: #ffffff !important;
+}
+
+body.dark-mode .btn-bts {
+    color: #ffffff !important;
+}
+
 body.dark-mode .footer {
     background-color: var(--light-color);
     border-top: 1px solid var(--border-color);
@@ -238,6 +248,16 @@ p {
     color: var(--light-color);
     transform: translateY(-3px);
     box-shadow: var(--shadow);
+}
+
+.btn-hero {
+    background-color: #ffffff;
+    color: #2563EB;
+}
+
+.btn-hero:hover {
+    background-color: #ffffff;
+    color: #2563EB;
 }
 
 .header {
@@ -383,10 +403,10 @@ p {
 
 /* Accueil */
 .hero {
-    min-height: calc(100vh - 80px);
+    min-height: 70vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+    background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%);
     position: relative;
     overflow: visible;
 }
