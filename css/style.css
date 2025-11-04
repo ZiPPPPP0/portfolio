@@ -403,7 +403,7 @@ p {
 
 /* Accueil */
 .hero {
-    min-height: 70vh;
+    min-height: 55vh;
     display: flex;
     align-items: center;
     background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
@@ -462,36 +462,54 @@ p {
 
 .hero-social {
     display: flex;
+    justify-content: center;
+    margin-top: 0;
+}
+
+.hero-content .hero-social {
     margin-top: 1.5rem;
 }
 
 .hero-social a {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--primary-color);
     color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 0.5rem;
     transition: var(--transition);
+    font-size: 1.2rem;
+}
+
+.hero-content .hero-social a {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
+    font-size: 1rem;
 }
 
 .hero-social a:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: var(--primary-hover);
     transform: translateY(-3px);
 }
 
-.hero-description-container {
+.hero-content .hero-social a:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.hero-bottom-section {
+    background-color: var(--bg-color);
     padding: 4rem 0 3rem 0;
     text-align: center;
 }
 
 .hero-description {
     max-width: 700px;
-    margin: 0 auto;
+    margin: 0 auto 2rem auto;
     font-size: 1.1rem;
     line-height: 1.8;
     color: var(--text-color);
@@ -499,6 +517,10 @@ p {
 
 body.dark-mode .hero-description {
     color: var(--text-color);
+}
+
+body.dark-mode .hero-bottom-section {
+    background-color: var(--bg-color);
 }
 
 .about {
