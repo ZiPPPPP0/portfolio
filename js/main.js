@@ -72,25 +72,120 @@ navLinks.forEach(link => {
     }
 });
 
-// Gestion des boutons "En savoir plus" des projets
+// Gestion du modal pour les projets
+let currentModal = null;
+
+// Fonction pour créer le modal
+function createModal(projectData) {
+    // Supprimer l'ancien modal s'il existe
+    const existingModal = document.querySelector('.modal-overlay');
+    if (existingModal) {
+        existingModal.remove();
+    }
+
+    // Créer le nouveau modal
+    const modalHTML = `
+        <div class="modal-overlay">
+            <div class="modal-container">
+                <div class="modal-header">
+                    <h3>${projectData.title}</h3>
+                    <button class="modal-close" aria-label="Fermer">&times;</button>
+                </div>
+                <div class="modal-body">
+                    ${projectData.content}
+                </div>
+            </div>
+        </div>
+    `;
+
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+    currentModal = document.querySelector('.modal-overlay');
+
+    // Activer le modal après un court délai pour l'animation
+    setTimeout(() => {
+        currentModal.classList.add('active');
+    }, 10);
+
+    // Empêcher le scroll du body
+    document.body.style.overflow = 'hidden';
+
+    // Ajouter les écouteurs d'événements
+    attachModalListeners();
+}
+
+// Fonction pour fermer le modal
+function closeModal() {
+    if (currentModal) {
+        currentModal.classList.remove('active');
+
+        setTimeout(() => {
+            currentModal.remove();
+            currentModal = null;
+            document.body.style.overflow = '';
+        }, 300);
+    }
+}
+
+// Attacher les écouteurs d'événements au modal
+function attachModalListeners() {
+    // Fermeture par le bouton X
+    const closeBtn = currentModal.querySelector('.modal-close');
+    closeBtn.addEventListener('click', closeModal);
+
+    // Fermeture par clic sur l'overlay
+    currentModal.addEventListener('click', (e) => {
+        if (e.target === currentModal) {
+            closeModal();
+        }
+    });
+
+    // Fermeture par la touche Escape
+    document.addEventListener('keydown', function escapeListener(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+            document.removeEventListener('keydown', escapeListener);
+        }
+    });
+}
+
+// Données des projets (contenu des détails)
+const projectsData = {
+    'podologue': {
+        title: 'Site web pour une podologue',
+        content: `
+            <h4>Détails du projet</h4>
+            <ul>
+                <li><strong>Technologies utilisées :</strong> HTML, CSS, JavaScript. Hébergeur : O2Switch, FileZilla pour la mise en service sur l'hébergeur</li>
+                <li><strong>Durée :</strong> 2 semaines</li>
+                <li><strong>Fonctionnalités :</strong> Site vitrine responsive, présentation des services, HTTPS</li>
+                <li><strong>Objectifs :</strong> Créer une présence en ligne professionnelle pour attirer de nouveaux patients. Accessible sur la première page de recherche.</li>
+            </ul>
+            <p><strong>Défis relevés :</strong> Adapter le design aux besoins spécifiques du secteur médical tout en conservant une interface moderne et accessible.</p>
+        `
+    },
+    'rftg': {
+        title: 'Application de réservation de DVD - RFTG',
+        content: `
+            <h4>Détails du projet</h4>
+            <ul>
+                <li><strong>Technologies utilisées :</strong> PHP, MySQL, Java, XML, REST API, Android Studio</li>
+                <li><strong>Durée :</strong> Projet en cours</li>
+                <li><strong>Modules :</strong> Gestion des réservations, authentification, interface mobile et web</li>
+                <li><strong>Objectif :</strong> Créer un système complet de gestion de DVD pour un parc à thème</li>
+            </ul>
+            <p><strong>Défis techniques :</strong> communication entre l'application mobile et le serveur via une API REST sécurisée, gestion multi-interface (web + mobile) et synchronisation des données avec la base MySQL.</p>
+        `
+    }
+};
+
+// Gestion des boutons "En savoir plus"
 document.addEventListener('click', (e) => {
     if (e.target.matches('.project-more-btn') || e.target.closest('.project-more-btn')) {
         const button = e.target.closest('.project-more-btn');
         const projectId = button.getAttribute('data-project');
-        const details = document.getElementById(`${projectId}-details`);
-        const chevron = button.querySelector('i');
-        
-        if (details) {
-            // Toggle des classes active
-            details.classList.toggle('active');
-            button.classList.toggle('active');
-            
-            // Changer le texte du bouton
-            if (details.classList.contains('active')) {
-                button.innerHTML = `Réduire <i class="fas fa-chevron-down"></i>`;
-            } else {
-                button.innerHTML = `En savoir plus <i class="fas fa-chevron-down"></i>`;
-            }
+
+        if (projectsData[projectId]) {
+            createModal(projectsData[projectId]);
         }
     }
 });
