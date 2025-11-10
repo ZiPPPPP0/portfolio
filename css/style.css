@@ -256,8 +256,8 @@ p {
 }
 
 .btn-hero {
-    background-color: #ffffff;
-    color: #3B82F6;
+    background-color: #ffffff !important;
+    color: #3B82F6 !important;
     font-weight: 600;
     padding: 1rem 2.5rem;
     font-size: 1.05rem;
@@ -265,8 +265,8 @@ p {
 }
 
 .btn-hero:hover {
-    background-color: #ffffff;
-    color: #2563EB;
+    background-color: #ffffff !important;
+    color: #2563EB !important;
     transform: translateY(-4px);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
 }
@@ -418,23 +418,10 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
+    background: linear-gradient(135deg, #5B9BF8 0%, #4A8DF6 50%, #3B82F6 100%);
     position: relative;
     overflow: visible;
     padding: 6rem 0 4rem 0;
-}
-
-.hero::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 120px;
-    background: var(--bg-color);
-    clip-path: polygon(0 60%, 100% 0, 100% 100%, 0 100%);
-    z-index: 0;
-    transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-content {
@@ -483,7 +470,7 @@ p {
 
 
 .hero-bottom-section {
-    background-color: var(--bg-color);
+    background: linear-gradient(135deg, #5B9BF8 0%, #4A8DF6 50%, #3B82F6 100%);
     padding: 10rem 0;
     text-align: center;
     min-height: 50vh;
@@ -495,7 +482,7 @@ p {
     margin: 0 auto 3.5rem auto;
     font-size: 1.25rem;
     line-height: 1.8;
-    color: var(--text-color);
+    color: #ffffff;
     font-weight: 400;
     letter-spacing: -0.01em;
     opacity: 0.9;
@@ -511,20 +498,21 @@ p {
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background-color: var(--primary-color);
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #3B82F6;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.35rem;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .hero-social a:hover {
-    background-color: var(--primary-hover);
+    background-color: #f0f0f0;
+    color: #2563EB;
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.35);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 .about {
